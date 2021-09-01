@@ -48,7 +48,7 @@ def build_mlp(
     # TODO: return a MLP. This should be an instance of nn.Module
     # Note: nn.Sequential is an instance of nn.Module.
     layers = [nn.Linear(input_size, size), activation]
-    for i in range(n_layers):
+    for i in range(n_layers-1):
         layers.extend([nn.Linear(size, size), activation])
     layers.extend([nn.Linear(size, output_size), output_activation])
     model = nn.Sequential(*layers)
