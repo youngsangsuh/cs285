@@ -2,3 +2,6 @@
 data/
 *.DS_Store
 *~
+*.csv
+*.png
+plot.py
