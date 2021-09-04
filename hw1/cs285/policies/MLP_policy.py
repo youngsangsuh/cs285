@@ -81,8 +81,8 @@ class MLPPolicy(BasePolicy, nn.Module, metaclass=abc.ABCMeta):
             observation = obs[None]
 
         # TODO return the action that the policy prescribes
-        obs_tensor = torch.tensor(observation, dtype = torch.float)
-        action = self.forward(obs_tensor)
+        obsv_tensor = torch.tensor(observation, dtype = torch.float)
+        action = self.forward(obsv_tensor)
         return ptu.to_numpy(action)
 
     # update/train this policy
