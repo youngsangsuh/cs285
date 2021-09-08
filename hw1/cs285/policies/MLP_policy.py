@@ -96,7 +96,7 @@ class MLPPolicy(BasePolicy, nn.Module, metaclass=abc.ABCMeta):
     # `torch.distributions.Distribution` object. It's up to you!
     def forward(self, observation: torch.FloatTensor) -> Any:
         if self.discrete:
-            raise NotImplementedError
+            return self.logits_na(observation)
         else:
             mean = self.mean_net(observation)
             distribution = distributions.Normal(mean, torch.exp(self.logstd))
