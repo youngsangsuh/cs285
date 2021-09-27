@@ -76,6 +76,8 @@ def main():
 
     parser.add_argument('--ep_len', type=int) #students shouldn't change this away from env's default
     parser.add_argument('--seed', type=int, default=1)
+    # NOTE(youngsang): for different seed
+    # parser.add_argument('--seed', type=int, default=3)
     parser.add_argument('--no_gpu', '-ngpu', action='store_true')
     parser.add_argument('--which_gpu', '-gpu_id', default=0)
     parser.add_argument('--video_log_freq', type=int, default=-1)

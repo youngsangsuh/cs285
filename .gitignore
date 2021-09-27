@@ -1,5 +1,9 @@
 *.pyc
 data/
+run_logs/
+*.zip
+cs285 HW2_Youngsang Suh.pdf
+cs285 HW2_Youngsang Suh_old.pdf
 *.DS_Store
 *~
 *.csv
