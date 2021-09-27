@@ -20,7 +20,7 @@ Q-3:
 python cs285/scripts/run_hw2.py --env_name LunarLanderContinuous-v2 --ep_len 1000 --discount 0.99 -n 100 -l 2 -s 64 -b 40000 -lr 0.005 --reward_to_go --nn_baseline --exp_name q3_b40000_r0.005
 ```
 Q-4-search:
-\texttt{<b>} $=\{10000, 30000, 50000 \}$, \texttt{<r>} $=\{0.005, 0.01, 0.02\}$
+<b>=\{10000, 30000, 50000 \}, <r>=\{0.005, 0.01, 0.02\}
 ```
 python cs285/scripts/run_hw2.py --env_name HalfCheetah-v2 --ep_len 150 --discount 0.95 -n 100 -l 2 -s 32 -b <b> -lr <r> -rtg --nn_baseline --exp_name q4_search_b<b>_lr<r>_rtg_nnbaseline
 ```
