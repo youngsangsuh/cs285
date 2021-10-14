@@ -78,7 +78,7 @@ class DQNCritic(BaseCritic):
             # NOTE(youngsang): still use target network to evaluate value
             next_q = self.q_net(next_ob_no)
             argmax = next_q.argmax(1)
-            q_tp1 = torch.gather(next_q, 1, argmax.unsqueeze(1)).squeeze(1)
+            q_tp1 = torch.gather(qa_tp1_values, 1, argmax.unsqueeze(1)).squeeze(1)
             
         else:
             q_tp1, _ = qa_tp1_values.max(dim=1)

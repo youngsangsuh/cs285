@@ -1,36 +1,42 @@
-## Setup
+## How to plot (Youngsang Suh):
+```
+python dataviz.py
+```
+The command above will generate the plots that are used in the homework report. You must make a folder called `figures` next to `data` folder before running this command.
 
-You can run this code on your own machine or on Google Colab. 
-
-1. **Local option:** If you choose to run locally, you will need to install MuJoCo and some Python packages; see [installation.md](../hw1/installation.md) from homework 1 for instructions. There are two new package requirements (`opencv-python` and `gym[atari]`) beyond what was used in the previous assignments; make sure to install these with `pip install -r requirements.txt` if you are running the assignment locally.
-
-2. **Colab:** The first few sections of the notebook will install all required dependencies. You can try out the Colab option by clicking the badges below:
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/berkeleydeeprlcourse/homework_fall2021/blob/master/hw3/cs285/scripts/run_hw3_dqn.ipynb) **Part I (Q-learning)** 
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/berkeleydeeprlcourse/homework_fall2021/blob/master/hw3/cs285/scripts/run_hw3_actor_critic.ipynb)     **Part II (Actor-critic)** 
-
-## Complete the code
-
-The following files have blanks to be filled with your solutions from homework 1. The relevant sections are marked with `TODO: get this from hw1 or hw2`.
-
-- [infrastructure/rl_trainer.py](cs285/infrastructure/rl_trainer.py)
-- [infrastructure/utils.py](cs285/infrastructure/utils.py)
-- [policies/MLP_policy.py](cs285/policies/MLP_policy.py)
-
-You will then need to implement new routines in the following files for homework 3 part 1 (Q-learning):
-- [agents/dqn_agent.py](cs285/agents/dqn_agent.py)
-- [critics/dqn_critic.py](cs285/critics/dqn_critic.py)
-- [policies/argmax_policy.py](cs285/policies/argmax_policy.py)
-
-and in the following files for part 2 (actor-critic):
-- [agents/ac_agent.py](cs285/agents/ac_agent.py)
-- [critics/bootstrapped_continuous_critic.py](cs285/critics/bootstrapped_continuous_critic.py)
-- [policies/MLP_policy.py](cs285/policies/MLP_policy.py)
-
-The relevant sections are marked with `TODO`.
-
-You may also want to look through [scripts/run_hw3_dqn.py](cs285/scripts/run_hw3_dqn.py) and [scripts/run_hw3_actor_critic.py](cs285/scripts/run_hw3_actor_critic.py) (if running locally) or [scripts/run_hw3_dqn.ipynb](cs285/scripts/run_hw3_dqn.ipynb) and [scripts/run_hw3_actor_critic.ipynb](cs285/scripts/run_hw3_actor_critic.ipynb) (if running on Colab), though you will not need to edit this files beyond changing runtime arguments in the Colab notebook.
-
-See the [assignment PDF](CS285_hw3.pdf) for more details on what files to edit.
-
+## Personal commands that can reproduce my results (Youngsang Suh):
+Q-1: 
+```
+python cs285/scripts/run_hw3_dqn.py --env_name MsPacman-v0 --exp_name q1
+```
+Q-2:
+```
+python cs285/scripts/run_hw3_dqn.py --env_name LunarLander-v3 --exp_name q2_dqn_1 --seed 1
+python cs285/scripts/run_hw3_dqn.py --env_name LunarLander-v3 --exp_name q2_dqn_2 --seed 2
+python cs285/scripts/run_hw3_dqn.py --env_name LunarLander-v3 --exp_name q2_dqn_3 --seed 3
+```
+```
+python cs285/scripts/run_hw3_dqn.py --env_name LunarLander-v3 --exp_name q2_doubledqn_1 --double_q --seed 1
+python cs285/scripts/run_hw3_dqn.py --env_name LunarLander-v3 --exp_name q2_doubledqn_2 --double_q --seed 2
+python cs285/scripts/run_hw3_dqn.py --env_name LunarLander-v3 --exp_name q2_doubledqn_3 --double_q --seed 3
+```
+Q-3: 
+```
+python run_hw3_dqn.py --env_name LunarLander-v3 --exp_name q3_hparam1
+python run_hw3_dqn.py --env_name LunarLander-v3 --exp_name q3_hparam2
+python run_hw3_dqn.py --env_name LunarLander-v3 --exp_name q3_hparam3
+```
+Q-4:
+```
+python run_hw3_actor_critic.py --env_name CartPole-v0 -n 100 -b 1000 --exp_name q4_ac_1_1 -ntu 1 -ngsptu 1
+python run_hw3_actor_critic.py --env_name CartPole-v0 -n 100 -b 1000 --exp_name q4_100_1 -ntu 100 -ngsptu 1
+python run_hw3_actor_critic.py --env_name CartPole-v0 -n 100 -b 1000 --exp_name q4_1_100 -ntu 1 -ngsptu 100
+python run_hw3_actor_critic.py --env_name CartPole-v0 -n 100 -b 1000 --exp_name q4_10_10 -ntu 10 -ngsptu 10
+```
+Q-5:
+```
+python run_hw3_actor_critic.py --env_name InvertedPendulum-v2 --ep_len 1000 --discount 0.95 -n 100 -l 2 -s 64 -b 5000 -lr 0.01 --exp_name q5_<ntu>_<ngsptu> -ntu 1 -ngsptu 100
+```
+```
+python run_hw3_actor_critic.py --env_name HalfCheetah-v2 --ep_len 150 --discount 0.90 --scalar_log_freq 1 -n 150 -l 2 -s 32 -b 30000 -eb 1500 -lr 0.02 --exp_name q5_<ntu>_<ngsptu> -ntu 1 -ngsptu 100
+```
